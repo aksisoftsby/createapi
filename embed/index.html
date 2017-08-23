@@ -6,9 +6,7 @@
     <title>Buat API open data mudah, cepat dan gratis</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <link href="prettify.css" rel="stylesheet" media="screen">
+    <link href="prettify.css" rel="stylesheet" media="screen, print">
     <link href="css.css" rel="stylesheet" media="screen, print">
   </head>
   <body>
@@ -16,176 +14,112 @@
       <div class="row-fluid">
         <div id="sidenav" class="span2">
           <nav id="scrollingNav">
-            <ul class="sidenav nav nav-list">
-              <li class="nav-header" data-group="User"><a href="#api-User">User</a></li>
-              <li data-group="User" data-name="GetUser" data-version="0.0.0" class="active">
-                <a href="#api-User-GetUser">Get User information</a>
-              </li>
+            <ul class="sidenav nav nav-list" id="APInav">
             </ul>
           </nav>
         </div>
         <div id="content">
           <div id="project">
-            <div class="pull-left">
-              <h1>example-basic</h1>
-              <h2>apiDoc basic example</h2>
+            <div class="pull-left titledesc">
+              <h1></h1>
+              <h2></h2>
             </div>
             <div class="clearfix"></div>
           </div>
           <div id="header"></div>
-          <div id="sections">
-            <section id="api-User">
-              <h1>User</h1>
-              <div id="api-User-GetUser">
-
-                <article id="api-User-GetUser-0.0.0" data-group="User" data-name="GetUser" data-version="0.0.0">
-                  <div class="pull-left">
-                    <h1>User - Get User information</h1>
-                  </div>
-                  <div class="clearfix"></div>
-
-
-                  <pre class="prettyprint language-html prettyprinted" data-type="get" style=""><code><span class="pln">/user/:id</span></code></pre>
-
-
-
-
-
-
-                  <h2>Parameter</h2>
-                  <table>
-                    <thead>
-                      <tr>
-                        <th style="width: 30%">Field</th>
-                        <th style="width: 10%">Type</th>
-                        <th style="width: 70%">Description</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="code">id</td>
-                        <td>
-                          Number
-                        </td>
-                        <td>
-                          <p>Users unique ID.</p> 
-
-
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-
-
-
-                  <h2>Success 200</h2>
-                  <table>
-                    <thead>
-                      <tr>
-                        <th style="width: 30%">Field</th>
-                        <th style="width: 10%">Type</th>
-                        <th style="width: 70%">Description</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="code">firstname</td>
-                        <td>
-                          String
-                        </td>
-                        <td>
-                          <p>Firstname of the User.</p> 
-
-
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="code">lastname</td>
-                        <td>
-                          String
-                        </td>
-                        <td>
-                          <p>Lastname of the User.</p> 
-
-
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                  <ul class="nav nav-tabs nav-tabs-examples">
-                    <li class="active">
-                      <a href="#success-examples-User-GetUser-0_0_0-0">Success-Response:</a>
-                    </li>
-                  </ul>
-
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="success-examples-User-GetUser-0_0_0-0">
-                      <pre class="prettyprint language-json prettyprinted" data-type="json" style=""><code><span class="pln">    HTTP</span><span class="pun">/</span><span class="lit">1.1</span><span class="pln"> </span><span class="lit">200</span><span class="pln"> OK
-    </span><span class="pun">{</span><span class="pln">
-      </span><span class="str">"firstname"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"John"</span><span class="pun">,</span><span class="pln">
-      </span><span class="str">"lastname"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Doe"</span><span class="pln">
-    </span><span class="pun">}</span></code></pre>
-                    </div>
-                  </div>
-
-
-
-                  <h2>Error 4xx</h2>
-                  <table>
-                    <thead>
-                      <tr>
-                        <th style="width: 30%">Field</th>
-
-                        <th style="width: 70%">Description</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="code">UserNotFound</td>
-                        <td>
-                          <p>The <code>id</code> of the User was not found.</p> 
-
-
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                  <ul class="nav nav-tabs nav-tabs-examples">
-                    <li class="active">
-                      <a href="#error-examples-User-GetUser-0_0_0-0">Error-Response:</a>
-                    </li>
-                  </ul>
-
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="error-examples-User-GetUser-0_0_0-0">
-                      <pre class="prettyprint language-json prettyprinted" data-type="json" style=""><code><span class="pln">    HTTP</span><span class="pun">/</span><span class="lit">1.1</span><span class="pln"> </span><span class="lit">404</span><span class="pln"> </span><span class="typ">Not</span><span class="pln"> </span><span class="typ">Found</span><span class="pln">
-    </span><span class="pun">{</span><span class="pln">
-      </span><span class="str">"error"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"UserNotFound"</span><span class="pln">
-    </span><span class="pun">}</span></code></pre>
-                    </div>
-                  </div>
-
-
-
-
-
-
-                </article>
-
-              </div>
-            </section>
-          </div>
+          <div id="sections"></div>
           <div id="footer"></div>
           <div id="generator">
             <div class="content">
-              Generated with <a href="http://apidocjs.com">apiDoc</a> 0.9.0 - 2014-11-28T14:54:55.224Z
+              Generated with <a href="http://google.com">API Creator</a> Buat API Open Data Mudah, Cepat dan Gratis
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="prettify.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function () {
+        var exe = "https://script.google.com/macros/s/AKfycbyVsgvdoJ2YcW-rUu3LRK3GbI0LD5uCnBXBkgMvQl6n8AuC_BUm/exec";
+        function getParameterByName(a) {
+          a = a.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+          var b = new RegExp("[\\?&]" + a + "=([^&#]*)"), c = b.exec(location.search);
+          return null === c ? "" : decodeURIComponent(c[1].replace(/\+/g, " "))
+        }
+        var Spreadsheetid = getParameterByName("id");
+        if (!Spreadsheetid) {
+          Spreadsheetid = "1cDPLaAbCvwcwi6qexyINU0mmvooE4F2VJHntzcJtcmg";
+        }
+        var APIDOMAIN = 'http://api.dony.asia/' + Spreadsheetid;
+        $.ajax({
+          'url': exe,
+          'data': {
+            id: Spreadsheetid
+          },
+          'success': function (data) {
+            js = (data);
+            if (js.error) {
+              $("#sections").html('<div class="alert alert-warning">' + js.error.message + '</div>');
+            } else {
+              d = js.result;
+              console.log(d);
+              $("#APInav").html('<li class="nav-header" data-group="' + d.title_slug + '"><a href="#api-' + d.title_slug + '">' + d.title + '</a></li>');
+              for (s in d.sheet) {
+                $("#APInav").append('<li data-group="' + d.sheet[s].slug + '" data-name="GetUser" data-version="0.0.0">'
+                  + '<a href="#api-' + d.sheet[s].slug + '">' + d.sheet[s].name + '</a>'
+                  + '</li>');
+                $("#sections").append('<section id="api-' + d.sheet[s].slug + '"><h1>' + d.sheet[s].name + '</h1><div id="api-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '">'
+                  + '<article id="api-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0.0.0" data-group="' + d.sheet[s].slug + '" data-name="Get' + d.sheet[s].slug + '" data-version="0.0.0">'
+                  + '<div class="pull-left"><h1>' + d.sheet[s].name + ' - Get ' + d.sheet[s].name + ' information</h1></div>');
+                $("#sections").append('<div class="clearfix"></div>'
+                  + '<pre class="prettyprint lang-html prettyprinted" data-type="get" style="">' + APIDOMAIN + '/' + d.sheet[s].slug + '/</pre>');
+                appe = ('<h2>Success</h2>'
+                  + '<pre class="prettyprint language-json prettyprinted" data-type="json" style="">'
+                  + JSON.stringify({result: {data: []}}, null, 2)
+                  + '</pre>'
+                  + '<table><thead><tr><th style="width: 30%">Field</th><th style="width: 10%">Type</th><th style="width: 70%">Description</th>'
+                  + '</tr>'
+                  + '</thead><tbody>'
+                  );
+                for (p in d.sheet[s].header) {
+                  appe += ('<tr><td class="code">' + d.sheet[s].header[p].slug + '</td><td>String</td>'
+                    + '<td><p>' + d.sheet[s].header[p].note + '</p></td></tr>');
+                }
+                appe += '</tbody></table>';
+                appe += '<ul class="nav nav-tabs nav-tabs-examples"><li class="active">'
+                  + '<a data-toggle="tab" href="#success-examples-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0_0_0-0">Success-Response:</a>'
+                  + '</li>'
+                  + '<li>'
+                  + '<a data-toggle="tab" href="#error-examples-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0_0_0-0">Error-Response:</a>'
+                  + '</li>'
+                  + '</ul>';
+                appe += '<div class="tab-content"><div class="tab-pane active" id="success-examples-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0_0_0-0">'
+                  + '<pre class="prettyprint language-json prettyprinted" data-type="json" style="">';
+                out = {};
+                out.result = {data: d.sheet[s].data};
+                appe += JSON.stringify(out, null, 2);
+                appe += '</pre></div>';
+                appe += '<div class="tab-pane" id="error-examples-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0_0_0-0">'
+                  + '<pre class="prettyprint language-json prettyprinted" data-type="json" style="">';
+                out = {};
+                out.result = {error: {message: "Error Message"}};
+                appe += JSON.stringify(out, null, 2);
+                appe += '</pre></div>';
+                appe += '</div>';
+                $("#sections").append(appe);
+                $("#sections").append('</section>');
+              }
+              $(".titledesc h1").html(d.title);
+              $(".titledesc h2").html(d.desc);
+              // $('.nav-tabs > .active').next('li').find('a').trigger('click');
+            }
+          },
+          dataType: 'json',
+          type: 'get'
+        });
+      })
+    </script>
   </body>
 </html>
