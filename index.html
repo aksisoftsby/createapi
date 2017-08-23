@@ -165,11 +165,11 @@
         <nav id="spy">
           <ul class="sidebar-nav nav">
             <li class="sidebar-brand">
-              <a href="#home"><span class="fa fa-home solo">Buat API Open data</span></a>
+              <a href="#home"><span class="fa fa-home solo">Buat Data</span></a>
             </li>
             <li>
               <a href="#anch1" data-scroll>
-                <span class="fa fa-anchor solo">Cara Membuat Database Open data</span>
+                <span class="fa fa-anchor solo">Tutorial</span>
               </a>
             </li>
             <li>
@@ -215,7 +215,7 @@
                   <input class="form-control input-lg" id="inputlg" type="text" placeholder="https://docs.google.com/spreadsheets/d/1cDPLaAbCvwcwi6qexyINU0mmvooE4F2VJHntzcJtcmg/edit">
                 </div>
                 <div class="form-group">
-                  <input class="form-control input-lg" id="submitlg" type="submit" value="BUAT API Sekarang">
+                  <input class="form-control input-lg input-primary" id="submitlg" type="submit" value="BUAT API Sekarang">
                 </div>
               </form>
             </div>
@@ -246,7 +246,7 @@
 
           <div class="navbar navbar-default navbar-static-bottom">
             <p class="navbar-text pull-left">
-              Built by <a href="http://mvnguyen.com" target="_blank">Michael V Nguyen
+              Hosted by <a href="http://github.com" target="_blank">github
             </p>
           </div>
         </div>
@@ -262,13 +262,14 @@
         $("#wrapper").toggleClass("active");
       });
 
+      $("#wrapper").toggleClass("active");
+
       /*Scroll Spy*/
       $('body').scrollspy({target: '#spy', offset: 80});
 
       /*Smooth link animation*/
       $('a[href*=#]:not([href=#])').click(function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-
           var target = $(this.hash);
           target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
           if (target.length) {
