@@ -156,20 +156,6 @@
     </style>
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      window.alert = function () {};
-      var defaultCSS = document.getElementById('bootstrap-css');
-      function changeCSS(css) {
-        if (css)
-          $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="' + css + '" type="text/css" />');
-        else
-          $('head > link').filter(':first').replaceWith(defaultCSS);
-      }
-      $(document).ready(function () {
-        var iframe_height = parseInt($('html').height());
-        window.parent.postMessage(iframe_height, 'https://bootsnipp.com');
-      });
-    </script>
   </head>
   <body>
     <div id="wrapper">
@@ -179,11 +165,11 @@
         <nav id="spy">
           <ul class="sidebar-nav nav">
             <li class="sidebar-brand">
-              <a href="#home"><span class="fa fa-home solo">Home</span></a>
+              <a href="#home"><span class="fa fa-home solo">Buat API Open data</span></a>
             </li>
             <li>
               <a href="#anch1" data-scroll>
-                <span class="fa fa-anchor solo">Anchor 1</span>
+                <span class="fa fa-anchor solo">Cara Membuat Database Open data</span>
               </a>
             </li>
             <li>
@@ -212,7 +198,7 @@
             <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
               <i class="fa fa-bars"></i>
             </a>
-            Sidebar Navigation Template
+            Menu
           </h1>
         </div>
 
@@ -220,10 +206,18 @@
           <div class="row">
 
             <div class="jumbotron text-center" >
-              <h1>Hello Beautiful!</h1>
-              <p>This is a sidebar navigation responsive template built off of Bootstrap 3.0 and simple sidebar template. It includes anchors, scroll spy, smooth scroll, and Awesome icon fonts.</p>
-              <p><a class="btn btn-default">Click On Me!</a>
-                <a class="btn btn-info">Tweet Me!</a></p>
+              <h1>Buat API Open data mudah, cepat dan gratis</h1>
+              <p>Anda tinggal isi form input dengan link Google Spreadsheet anda, 
+                pastikan anda membuat data Google Spreadsheet sesuai tutorial kami.</p>
+              <form>
+                <div class="form-group">
+                  <label for="inputlg">Input Google Spreadsheet URL/Link, contoh: https://docs.google.com/spreadsheets/d/1cDPLaAbCvwcwi6qexyINU0mmvooE4F2VJHntzcJtcmg/edit</label>
+                  <input class="form-control input-lg" id="inputlg" type="text" placeholder="https://docs.google.com/spreadsheets/d/1cDPLaAbCvwcwi6qexyINU0mmvooE4F2VJHntzcJtcmg/edit">
+                </div>
+                <div class="form-group">
+                  <input class="form-control input-lg" id="submitlg" type="submit" value="BUAT API Sekarang">
+                </div>
+              </form>
             </div>
 
           </div>
