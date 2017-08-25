@@ -66,87 +66,87 @@
           }
           return '<span class="' + cls + '">' + match + '</span>';
         });
-        jQuery(document).ready(function () {
-          var exe = "https://script.google.com/macros/s/AKfycbyVsgvdoJ2YcW-rUu3LRK3GbI0LD5uCnBXBkgMvQl6n8AuC_BUm/exec";
-          function getParameterByName(a) {
-            a = a.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-            var b = new RegExp("[\\?&]" + a + "=([^&#]*)"), c = b.exec(location.search);
-            return null === c ? "" : decodeURIComponent(c[1].replace(/\+/g, " "))
-          }
-          var Spreadsheetid = getParameterByName("id");
-          if (!Spreadsheetid) {
-            Spreadsheetid = "1cDPLaAbCvwcwi6qexyINU0mmvooE4F2VJHntzcJtcmg";
-          }
-          var APIDOMAIN = 'http://api.dony.asia/' + Spreadsheetid;
-          $.ajax({
-            'url': exe,
-            'data': {
-              id: Spreadsheetid
-            },
-            'success': function (data) {
-              js = (data);
-              if (js.error) {
-                $("#sections").html('<div class="alert alert-warning">' + js.error.message + '</div>');
-              } else {
-                d = js.result;
-                console.log(d);
-                $("#APInav").html('<li class="nav-header" data-group="' + d.title_slug + '"><a href="#api-' + d.title_slug + '">' + d.title + '</a></li>');
-                for (s in d.sheet) {
-                  $("#APInav").append('<li data-group="' + d.sheet[s].slug + '" data-name="GetUser" data-version="0.0.0">'
-                    + '<a href="#api-' + d.sheet[s].slug + '">' + d.sheet[s].name + '</a>'
-                    + '</li>');
-                  $("#sections").append('<section id="api-' + d.sheet[s].slug + '"><h1>' + d.sheet[s].name + '</h1><div id="api-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '">'
-                    + '<article id="api-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0.0.0" data-group="' + d.sheet[s].slug + '" data-name="Get' + d.sheet[s].slug + '" data-version="0.0.0">'
-                    + '<div class="pull-left"><h1>' + d.sheet[s].name + ' - Get ' + d.sheet[s].name + ' information</h1></div>');
-                  $("#sections").append('<div class="clearfix"></div>'
-                    + '<pre class="prettyprint lang-html prettyprinted" data-type="get" style="">' + APIDOMAIN + '/' + d.sheet[s].slug + '/</pre>');
-                  appe = ('<h2>Success</h2>'
-                    + '<pre class="prettyprint language-json prettyprinted" data-type="json" style="">'
-                    + syntaxHighlight(JSON.stringify({result: {data: [], total: 1}}, null, 2))
-                    + '</pre>'
-                    + '<table><thead><tr><th style="width: 30%">Field</th><th style="width: 10%">Type</th><th style="width: 70%">Description</th>'
-                    + '</tr>'
-                    + '</thead><tbody>'
-                    );
-                  for (p in d.sheet[s].header) {
-                    appe += ('<tr><td class="code">' + d.sheet[s].header[p].slug + '</td><td>String</td>'
-                      + '<td><p>' + d.sheet[s].header[p].note + '</p></td></tr>');
-                  }
-                  appe += '</tbody></table>';
-                  appe += '<ul class="nav nav-tabs nav-tabs-examples"><li class="active">'
-                    + '<a data-toggle="tab" href="#success-examples-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0_0_0-0">Success-Response:</a>'
-                    + '</li>'
-                    + '<li>'
-                    + '<a data-toggle="tab" href="#error-examples-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0_0_0-0">Error-Response:</a>'
-                    + '</li>'
-                    + '</ul>';
-                  appe += '<div class="tab-content"><div class="tab-pane active" id="success-examples-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0_0_0-0">'
-                    + '<pre class="prettyprint language-json prettyprinted" data-type="json" style="">';
-                  out = {};
-                  out.result = {data: d.sheet[s].data};
-                  appe += syntaxHighlight(JSON.stringify(out, null, 2));
-                  appe += '</pre></div>';
-                  appe += '<div class="tab-pane" id="error-examples-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0_0_0-0">'
-                    + '<pre class="prettyprint language-json prettyprinted" data-type="json" style="">';
-                  out = {};
-                  out.result = {error: {message: "Error Message"}};
-                  appe += syntaxHighlight(JSON.stringify(out, null, 2));
-                  appe += '</pre></div>';
-                  appe += '</div>';
-                  $("#sections").append(appe);
-                  $("#sections").append('</section>');
-                }
-                $(".titledesc h1").html(d.title);
-                $(".titledesc h2").html(d.desc);
-                $("title").html(d.title + ' - ' + $("title").html());
-                // $('.nav-tabs > .active').next('li').find('a').trigger('click');
-              }
-            },
-            dataType: 'json',
-            type: 'get'
-          });
       }
-      )
+      jQuery(document).ready(function () {
+        var exe = "https://script.google.com/macros/s/AKfycbyVsgvdoJ2YcW-rUu3LRK3GbI0LD5uCnBXBkgMvQl6n8AuC_BUm/exec";
+        function getParameterByName(a) {
+          a = a.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+          var b = new RegExp("[\\?&]" + a + "=([^&#]*)"), c = b.exec(location.search);
+          return null === c ? "" : decodeURIComponent(c[1].replace(/\+/g, " "))
+        }
+        var Spreadsheetid = getParameterByName("id");
+        if (!Spreadsheetid) {
+          Spreadsheetid = "1cDPLaAbCvwcwi6qexyINU0mmvooE4F2VJHntzcJtcmg";
+        }
+        var APIDOMAIN = 'http://api.dony.asia/' + Spreadsheetid;
+        $.ajax({
+          'url': exe,
+          'data': {
+            id: Spreadsheetid
+          },
+          'success': function (data) {
+            js = (data);
+            if (js.error) {
+              $("#sections").html('<div class="alert alert-warning">' + js.error.message + '</div>');
+            } else {
+              d = js.result;
+              console.log(d);
+              $("#APInav").html('<li class="nav-header" data-group="' + d.title_slug + '"><a href="#api-' + d.title_slug + '">' + d.title + '</a></li>');
+              for (s in d.sheet) {
+                $("#APInav").append('<li data-group="' + d.sheet[s].slug + '" data-name="GetUser" data-version="0.0.0">'
+                  + '<a href="#api-' + d.sheet[s].slug + '">' + d.sheet[s].name + '</a>'
+                  + '</li>');
+                $("#sections").append('<section id="api-' + d.sheet[s].slug + '"><h1>' + d.sheet[s].name + '</h1><div id="api-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '">'
+                  + '<article id="api-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0.0.0" data-group="' + d.sheet[s].slug + '" data-name="Get' + d.sheet[s].slug + '" data-version="0.0.0">'
+                  + '<div class="pull-left"><h1>' + d.sheet[s].name + ' - Get ' + d.sheet[s].name + ' information</h1></div>');
+                $("#sections").append('<div class="clearfix"></div>'
+                  + '<pre class="prettyprint lang-html prettyprinted" data-type="get" style="">' + APIDOMAIN + '/' + d.sheet[s].slug + '/</pre>');
+                appe = ('<h2>Success</h2>'
+                  + '<pre class="prettyprint language-json prettyprinted" data-type="json" style="">'
+                  + syntaxHighlight(JSON.stringify({result: {data: [], total: 1}}, null, 2))
+                  + '</pre>'
+                  + '<table><thead><tr><th style="width: 30%">Field</th><th style="width: 10%">Type</th><th style="width: 70%">Description</th>'
+                  + '</tr>'
+                  + '</thead><tbody>'
+                  );
+                for (p in d.sheet[s].header) {
+                  appe += ('<tr><td class="code">' + d.sheet[s].header[p].slug + '</td><td>String</td>'
+                    + '<td><p>' + d.sheet[s].header[p].note + '</p></td></tr>');
+                }
+                appe += '</tbody></table>';
+                appe += '<ul class="nav nav-tabs nav-tabs-examples"><li class="active">'
+                  + '<a data-toggle="tab" href="#success-examples-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0_0_0-0">Success-Response:</a>'
+                  + '</li>'
+                  + '<li>'
+                  + '<a data-toggle="tab" href="#error-examples-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0_0_0-0">Error-Response:</a>'
+                  + '</li>'
+                  + '</ul>';
+                appe += '<div class="tab-content"><div class="tab-pane active" id="success-examples-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0_0_0-0">'
+                  + '<pre class="prettyprint language-json prettyprinted" data-type="json" style="">';
+                out = {};
+                out.result = {data: d.sheet[s].data};
+                appe += syntaxHighlight(JSON.stringify(out, null, 2));
+                appe += '</pre></div>';
+                appe += '<div class="tab-pane" id="error-examples-' + d.sheet[s].slug + '-Get' + d.sheet[s].slug + '-0_0_0-0">'
+                  + '<pre class="prettyprint language-json prettyprinted" data-type="json" style="">';
+                out = {};
+                out.result = {error: {message: "Error Message"}};
+                appe += syntaxHighlight(JSON.stringify(out, null, 2));
+                appe += '</pre></div>';
+                appe += '</div>';
+                $("#sections").append(appe);
+                $("#sections").append('</section>');
+              }
+              $(".titledesc h1").html(d.title);
+              $(".titledesc h2").html(d.desc);
+              $("title").html(d.title + ' - ' + $("title").html());
+              // $('.nav-tabs > .active').next('li').find('a').trigger('click');
+            }
+          },
+          dataType: 'json',
+          type: 'get'
+        });
+      })
     </script>
   </body>
 </html>
